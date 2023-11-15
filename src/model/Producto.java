@@ -6,15 +6,11 @@ public class Producto {
 	Float precio;
 	boolean disponible;
 	
-	public Producto(String c, String n, Float p, int d) {
+	public Producto(String c, String n, Float p, boolean d) {
 		codigo=c;
 		nombre=n;
 		precio = p;
-		if (d==1) {
-			disponible=true;
-		}else {
-			disponible=false;
-		}
+		disponible=d;
 	}
 
 	public String getCodigo() {

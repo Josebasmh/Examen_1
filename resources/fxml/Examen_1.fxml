@@ -19,7 +19,7 @@
    <children>
       <MenuBar prefWidth="800.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
@@ -44,10 +44,10 @@
                   <Label text="Código del Producto:" GridPane.halignment="RIGHT" />
                   <Label text="Nombre:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Label text="Precio" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <CheckBox mnemonicParsing="false" text="Disonible" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="tfCodigo" GridPane.columnIndex="1" />
+                  <TextField fx:id="tfNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="tfPrecio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="cbDisponible" mnemonicParsing="false" text="Disonible" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Imagen:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
                   <Button mnemonicParsing="false" text="Seleccionar Imagen..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
@@ -56,7 +56,7 @@
       </FlowPane>
       <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="40.0" prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Crear" />
+            <Button mnemonicParsing="false" onAction="#crearProducto" prefWidth="100.0" text="Crear" />
             <Button mnemonicParsing="false" prefWidth="100.0" text="Actualizar" />
             <Button mnemonicParsing="false" prefWidth="100.0" text="Limpiar" />
          </children>

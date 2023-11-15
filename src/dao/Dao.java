@@ -26,14 +26,30 @@ public class Dao {
 				String codigo = rs.getString("codigo");
 				String nombre = rs.getString("nombre");
 				Float precio = rs.getFloat("precio");
-				Integer disponible = rs.getInt("disponible");
+				boolean disponible = rs.getBoolean("disponible");
 				
 				listaProductos.add(new Producto(codigo, nombre, precio, disponible));
 			}			
-			
+			rs.close();
+			pstmt.close();
+			conexion.CloseConexion();
 		} catch (SQLException e) {			
 			e.printStackTrace();			
-		}      
+		} 		
 		return listaProductos;				
+	}
+
+	public void aniadirProducto(Producto p) {
+		try {
+			conexion = new ConexionBD();
+			String consulta = "INSERT INTO productos(codigo,nombre,precio,disponible) values('" +
+			p.getCodigo()+"','"+p.getNombre()+"',"+p.getPrecio()+","+p.isDisponible()+");";
+			PreparedStatement pstmt = conexion.getConexion().prepareStatement(consulta);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
