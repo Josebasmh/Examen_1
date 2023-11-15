@@ -17,14 +17,14 @@ FlowPane root;
 	public void start(Stage stage) throws Exception {
 		try {
 
-			root = (FlowPane)FXMLLoader.load(getClass().getResource("/fxml/Hello_world.fxml"));
+			root = (FlowPane)FXMLLoader.load(getClass().getResource("/fxml/Examen_1.fxml"));
 			stage.setTitle("Hello World");
-			Scene scene = new Scene(root,800,600);
+			Scene scene = new Scene(root,830,650);
 			stage.setScene(scene);
-			stage.setMinWidth(800);
-			stage.setMinHeight(600);
-			stage.setMaxWidth(800);
-			stage.setMaxHeight(600);
+			stage.setMinWidth(830);
+			stage.setMinHeight(650);
+			stage.setMaxWidth(830);
+			stage.setMaxHeight(650);
 			//stage.getIcons().add(new Image(getClass().getResource("/img/avion.png").toString()));
 			stage.show();	
 		}catch(IOException e) {
