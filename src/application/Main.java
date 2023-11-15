@@ -18,7 +18,7 @@ FlowPane root;
 		try {
 
 			root = (FlowPane)FXMLLoader.load(getClass().getResource("/fxml/Examen_1.fxml"));
-			stage.setTitle("Hello World");
+			stage.setTitle("PRODUCTOS");
 			Scene scene = new Scene(root,830,650);
 			stage.setScene(scene);
 			stage.setMinWidth(830);
@@ -29,6 +29,7 @@ FlowPane root;
 			stage.show();	
 		}catch(IOException e) {
 			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
