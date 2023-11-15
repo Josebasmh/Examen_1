@@ -19,7 +19,7 @@
    <children>
       <MenuBar prefWidth="800.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Ayuda">
+          <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
@@ -56,12 +56,12 @@
       </FlowPane>
       <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="40.0" prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#crearProducto" prefWidth="100.0" text="Crear" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Actualizar" />
+            <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearProducto" prefWidth="100.0" text="Crear" />
+            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarProducto" prefWidth="100.0" text="Actualizar" />
             <Button mnemonicParsing="false" prefWidth="100.0" text="Limpiar" />
          </children>
       </FlowPane>
-      <TableView fx:id="tvTabla" prefHeight="300.0" prefWidth="200.0">
+      <TableView fx:id="tvTabla" onMouseClicked="#seleccionarProducto" prefHeight="300.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="tcCodigo" prefWidth="188.0" text="CODIGO" />
           <TableColumn fx:id="tcNombre" prefWidth="227.0" text="NOMBRE" />

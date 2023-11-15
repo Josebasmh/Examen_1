@@ -52,4 +52,9 @@ public class Dao {
 		}
 		
 	}
+
+	public void actualizarProducto(Producto producto) {
+		// TODO Auto-generated method stub
+		
+	}
 }

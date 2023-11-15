@@ -11,16 +11,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import model.Producto;
 
 
 public class ControllerMain implements Initializable{
 	
+	@FXML
+    private Button btnActualizar;
+
+    @FXML
+    private Button btnCrear;
+    
     @FXML
     private CheckBox cbDisponible;
 
@@ -56,6 +64,7 @@ public class ControllerMain implements Initializable{
 		tcNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("nombre"));
 		tcPrecio.setCellValueFactory(new PropertyValueFactory<Producto, Float>("precio"));
 		tcDisponible.setCellValueFactory(new PropertyValueFactory<Producto, Boolean>("disponible"));
+		btnActualizar.setDisable(true);
 		ObservableList<Producto>listaProducto = dao.cargarDatos();
 		tvTabla.setItems(listaProducto);
 		
@@ -63,6 +72,7 @@ public class ControllerMain implements Initializable{
 	
     @FXML
     void crearProducto(ActionEvent event) {
+    	btnActualizar.setDisable(true);
     	try {
     		ObservableList<String>camposNulos = comprobarCampos();
     		String campoPrecio = comprobarPrecio();
@@ -84,10 +94,48 @@ public class ControllerMain implements Initializable{
     		ventanaAlerta("E", e.getMessage());
     	}catch (NumberFormatException e) {
     		ventanaAlerta("E", e.getMessage());
-    	}
-    	
+    	}  	
+    }
+    
+    @FXML
+    void seleccionarProducto(MouseEvent event) {	
+    	btnActualizar.setDisable(false);
+    	Producto p =tvTabla.getSelectionModel().getSelectedItem();
+    	tfCodigo.setText(p.getCodigo().toString());
+    	tfCodigo.setDisable(true);
+    	tfNombre.setText(p.getNombre().toString());
+    	tfPrecio.setText(p.getPrecio().toString());
+    	cbDisponible.setSelected(p.isDisponible());
     	
     }
+    
+
+    @FXML
+    void actualizarProducto(ActionEvent event) {
+    	try {
+    		ObservableList<String>camposNulos = comprobarCampos();
+    		String campoPrecio = comprobarPrecio();
+        	if (!campoPrecio.isEmpty()) {
+        		throw new NumberFormatException(campoPrecio);
+        	}
+    		if (!camposNulos.isEmpty()) {
+        		Iterator<String> it = camposNulos.iterator();
+        		String msg="";
+        		while(it.hasNext()) {
+        			msg= msg + it.next();
+        		}
+        		throw new NullPointerException(msg);
+    		}
+    		btnActualizar.setDisable(false);
+    		dao.actualizarProducto(new Producto(tfCodigo.getText(), tfNombre.getText(), Float.valueOf(tfPrecio.getText()), Boolean.getBoolean(cbDisponible.getText())));
+    	}catch (NullPointerException e) {    		
+    		ventanaAlerta("E", e.getMessage());
+    	}catch (NumberFormatException e) {
+    		ventanaAlerta("E", e.getMessage());
+    	}
+    }
+    
+    // Metodos auxiliares
 
     ObservableList<String> comprobarCampos() {
     	ObservableList<String> camposNulos = FXCollections.observableArrayList();

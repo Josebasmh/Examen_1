@@ -13,36 +13,60 @@ public class Producto {
 		disponible=d;
 	}
 
+	
+
 	public String getCodigo() {
 		return codigo;
 	}
+
+
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
+
 	public Float getPrecio() {
 		return precio;
 	}
+
+
 
 	public void setPrecio(Float precio) {
 		this.precio = precio;
 	}
 
+
+
 	public boolean isDisponible() {
 		return disponible;
 	}
 
+
+
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", disponible=" + disponible
+				+ "]";
 	}
 	
 	
