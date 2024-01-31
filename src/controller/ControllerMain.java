@@ -54,9 +54,10 @@ public class ControllerMain implements Initializable{
     private TextField tfNombre;
 
     @FXML
-    private TextField tfPrecio;   
+    private TextField tfPrecio;
     
-    Dao dao = new Dao();
+    private boolean modificar = false;
+    private Dao dao = new Dao();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -98,15 +99,14 @@ public class ControllerMain implements Initializable{
     }
     
     @FXML
-    void seleccionarProducto(MouseEvent event) {	
+    void seleccionarProducto(MouseEvent event) {    	
     	btnActualizar.setDisable(false);
     	Producto p =tvTabla.getSelectionModel().getSelectedItem();
     	tfCodigo.setText(p.getCodigo().toString());
     	tfCodigo.setDisable(true);
     	tfNombre.setText(p.getNombre().toString());
     	tfPrecio.setText(p.getPrecio().toString());
-    	cbDisponible.setSelected(p.isDisponible());
-    	
+    	cbDisponible.setSelected(p.isDisponible());    	
     }
     
 
@@ -133,6 +133,11 @@ public class ControllerMain implements Initializable{
     	}catch (NumberFormatException e) {
     		ventanaAlerta("E", e.getMessage());
     	}
+    }
+    
+    @FXML
+    void limpiar(ActionEvent event) {
+
     }
     
     // Metodos auxiliares

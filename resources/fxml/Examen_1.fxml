@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<FlowPane id="fondo" alignment="TOP_CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="613.0" prefWidth="830.0" stylesheets="@../css/css.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMain">
+<FlowPane id="fondo" alignment="TOP_CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="613.0" prefWidth="830.0" stylesheets="@../css/css.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMain">
    <children>
       <MenuBar prefWidth="800.0">
         <menus>
@@ -58,7 +58,7 @@
          <children>
             <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearProducto" prefWidth="100.0" text="Crear" />
             <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarProducto" prefWidth="100.0" text="Actualizar" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Limpiar" />
+            <Button mnemonicParsing="false" onAction="#limpiar" prefWidth="100.0" text="Limpiar" />
          </children>
       </FlowPane>
       <TableView fx:id="tvTabla" onMouseClicked="#seleccionarProducto" prefHeight="300.0" prefWidth="200.0">
